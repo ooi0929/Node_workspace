@@ -9,7 +9,10 @@ app.set('view engine', 'ejs'); // ejs를 default 엔진으로 설정
 app.get(
     '/',
     (req, res)=> {
-        var context = {title: 'welcome-1'};
+        var context = {
+            title: 'welcome-1',
+            name: '김백건',
+        };
         res.render('home', context, (err, html)=> res.end(html));
     }
 );
@@ -20,7 +23,12 @@ app.get(
         // 여기에 있는 내용을
         var id = req.params.id;
 
-        var context = {title: id};
+        // ejs에 있는 파라미터에 똑같은 개수, 이름을 맞춰서 넘겨줘야 한다. 
+        // 에러 발생 해결 - 가짜값이라도 넘겨줘야 함.
+        var context = {
+            title: id,
+            name: '김백건', 
+        };
 
         // 경로에 지정하지 않도록 주의! - 보안상 문제.
         res.render('home', context, (err, html)=> res.end(html));
