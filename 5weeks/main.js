@@ -15,6 +15,13 @@ app.get(
 );
 
 app.get(
+    '/page/:pageId',
+    (req, res) => {
+        topic.page(req, res);
+    }
+);
+
+app.get(
     '/favicon.ico',
     (req, res) => {
         res.writeHead(404);
