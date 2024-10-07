@@ -1,11 +1,11 @@
-var mysql = require('mysql');
+var mysql = require('mysql2');
 
 var db = mysql.createConnection(
     {
         host: 'localhost',
         user: 'root',
         password: 'root',
-        database: 'webdb2024',
+        database: 'webdb24',
     }
 );
 db.connect();

@@ -1,4 +1,3 @@
-const topic = require('../../5weeks/lib/topic');
 const db = require('./db');
 var qs = require('querystring');
 
