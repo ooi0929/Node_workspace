@@ -22,7 +22,9 @@
     <ol type = '1'>
     <% var i = 0;
        while(schedules.length > i) { %>
-        <a href='#'><li></li></a>
+        <li>
+            <a href="/page/<%= schedules[i].id%>"><%= schedules[i].title%></a>
+        </li>
     <% i++;} %>
     </ol>    
 
