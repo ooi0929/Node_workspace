@@ -50,6 +50,13 @@ app.get(
 );
 
 app.get(
+    '/delete/:pageId',
+    (req, res) => {
+        topic.delete_proces(req, res);
+    }
+);
+
+app.get(
     '/favicon.ico',
     (req, res) => {
         res.writeHead(404);

@@ -141,6 +141,20 @@ module.exports = {
             }
         );
     },
+    delete_process: (req, res) => {
+        var id = req.params.pageId;
+
+        db.query(
+            'DELETE FROM topic WHERE id = ?',
+            [id],
+            (err, result) => {
+                if (err) throw err;
+
+                res.writeHead(302, {Location: '/'});
+                res.end();
+            }
+        );
+    },
     page: (req, res) => {
         var id = req.params.pageId;
 
@@ -158,7 +172,7 @@ module.exports = {
                             throw err2;
                         }
 
-                        var m = `<a href="/create">create</a>&nbsp;&nbsp;<a href="/update/${topic[0].id}">update</a>&nbsp;&nbsp;<a href="#">delete</a>`;
+                        var m = `<a href="/create">create</a>&nbsp;&nbsp;<a href="/update/${topic[0].id}">update</a>&nbsp;&nbsp;<a href="/delete/${topic[0].id}" onclick="if(confirm("정말로 삭제하시겠습니까?")==false){ return false }">delete</a>`;
                         var b = `<h2>${topic[0].title}</h2><p>${topic[0].descrpt}</p>`;
 
                         var context = {
