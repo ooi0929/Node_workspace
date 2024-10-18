@@ -11,17 +11,7 @@ var author = require('./lib/author');
 
 app.get(
     '/',
-    (req, res) => {
-        res.writeHead(
-            200,
-            { 'set-cookie':['yummy_cookie=choco', 'tasty_cookie=strawberry']}
-        );
-        console.log(req.headers.cookie);
-
-        var cookies = cookie.parse(req.headers.cookie);
-        console.log(cookies);
-        res.end('Cookie!!');
-    }
+    (req, res) => topic.home(req, res)
 );
 
 app.get(
