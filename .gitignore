@@ -1,8 +1,6 @@
-## node_modules
-node_modules/
+## 패키지
+node_modules
 
-## node_json
-*.json
-
-## test file
-test.js
+## 패키지
+package.json
+package-lock.json
