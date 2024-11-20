@@ -8,7 +8,7 @@ app.set('views', __dirname + '/views'); // EJS View 파일이 저장된 디텍�
 app.set('view engine', 'ejs');          // EJS를 view engine으로 설정
 
 // session 영역
-const session = requrie('express-session');
+const session = require('express-session');
 const MysqlStore = require('express-mysql-session')(session);
 
 // Mysql DB 연결 옵션 설정

@@ -28,6 +28,9 @@
                   <li><a class = "link_name" href="#" >Dashboard</a></li>
                </ul>
             </li>
+
+            <!-- 메뉴 시작 -->
+
             <li>
                <div class="icon-link">
                   <a href="#">
@@ -59,58 +62,9 @@
                </ul>
             </li>
 
-            <li>
-               <a href="#">
-                  <i class='bx bx-purchase-tag-alt' ></i>
-                  <span class="link_name">Purchase List</span>
-               </a>
-               <ul class="sub-menu blank" >
-                  <li><a class="link_name" href="#">Purchase List</a></li>
-               </ul>
-            </li>
-
-            <li>
-               <a href="#">
-                  <i class='bx bx-cart'></i>
-                  <span class="link_name">Cart</span>
-               </a>
-               <ul class="sub-menu blank" >
-                  <li><a class="link_name" href="#">Cart</a></li>
-               </ul>
-            </li>
-
-
-            <li>
-               <div class="icon-link">
-                  <a href="#">
-                     <i class='bx bx-data'></i>
-                     <span class="link_name">DB Admin</span>
-                  </a>
-                  <i class='bx bxs-chevron-down arrow' ></i>
-               </div>
-               <ul class="sub-menu">
-                  <li><a class = "link_name" href="#" >DB Admin</a></li>
-                  <li><a href="#">Table Create</a></li>
-                  <li><a href="#"> code CRUD </a></li>
-                  <li><a href="#" >product CRUD</a></li>
-               </ul>
-            </li>
-  
-
-
-            <li>
-               <a href="#">
-                  <i class='bx bx-pie-chart-alt-2'></i>
-                  <span class="link_name">Analytic</span>
-               </a>
-               <ul class="sub-menu blank">
-                  <li><a class = "link_name" href="#" >Analytic</a></li>
-               </ul>
-            </li>
-            
-
-
-            
+            <!-- 여기까지는 공통된 메뉴들 -->
+            <!-- 사용자의 클래스에 따라 나타날 메뉴들 -->
+            <%- menu %>
             
             <li>
                <div class="icon-link">
@@ -122,10 +76,12 @@
                </div>
                <ul class="sub-menu">
                   <li><a class = "link_name" href="#" >Setting</a></li>
-                  <li><a href="#" >회원가입</a></li>
+                  <li><a href="/auth/register" >회원가입</a></li>
                   <li><a href="#" >아이디/비번 찾기</a></li>
                </ul>
             </li>
+
+            <!-- 메뉴 끝 -->
 
             <li>
                <div class="profile-details">
@@ -133,12 +89,19 @@
                      <img src="/image/guest.jpg" alt="profile" >
                   </div>
                   <div class="name-job">
-                     <div class="profile_name">Guest</div>
+                     <!-- 사용자의 이미지 -->
+                     <div class="profile_name"><%= who %></div>
                      <div class="job"></div>
                   </div>
                   
-                  <i class='bx bx-log-in'></i>
-                  
+                  <!-- 로그인 후 클릭 시 로그아웃 -->
+                  <% if (cls === 'CST' || cls === 'MNG' || cls === 'CEO') { %>
+                     <a href="/auth/logout"><i class='bx bx-log-in'></i></a>
+                  <% } else { %>
+                  <!-- 로그인 전 클릭 시 로그인 페이지로 -->
+                     <a href="/auth/login"><i class='bx bx-log-in'></i></a>
+                  <% } %>
+
                </div>
             </li>
 
@@ -151,8 +114,8 @@
          </div>
          <div class="home-content2">
             
-
-
+            <!-- 화면에 렌더링할 ejs -->
+            <%- include(body) %>
          </div>
       </section>
 

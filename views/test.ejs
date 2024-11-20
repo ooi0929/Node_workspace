@@ -1,5 +1,27 @@
-<div class="container">	
-	<h2>Coming Soon</h2>
-	
-</div>
-
+<% if (products.length !== 0) { %>
+    <table class="table table-bordered " style="text-align: center;">
+        <thead class="table-primary ">
+            <th>상품</th>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>브랜드</th>
+        </thead>
+        <tbody>
+            <% products.forEach((product) => { %>
+                <tr>
+                    <td>
+                        <a href="/product/view/<%= product.id %>" style="text-decoration: none;">
+                            <img src="<%= product.image ? `/image/${product.image}` : '/public/image/default-image.jpg' %>"
+                                 style="width:100px;height:100px;">
+                        </a>
+                    </td>
+                    <td><%= product.name %></td>
+                    <td><%= product.price %> 원</td>
+                    <td><%= product.brand %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <p style="text-align: center; margin-top: 20px;">자료가 없습니다. 자료를 추가해주세요.</p>
+<% } %>
